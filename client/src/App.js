@@ -4,6 +4,7 @@ import Main from './components/Main';
 import Navbar from './components/Navbar';
 import StudentForm from './components/StudentForm';
 import StudentInfo from './components/StudentInfo';
+import UpdateStudent from './components/UpdateStudent'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path = '/' element={<Main />} />
         <Route path = '/addstudent' element={<StudentForm />} />
         <Route path = '/details/:id' element={<StudentInfo />} />
+        <Route path = '/edit/:id' element={<UpdateStudent />} />
         </Routes>
       </BrowserRouter>
     </div>

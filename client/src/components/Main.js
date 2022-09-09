@@ -18,6 +18,13 @@ const Main = () => {
     });
   }, []);
 
+  // const deleteStudent = (id) => {
+  //   const newList = list.filter((student)=> {
+  //     return student._id !== id;
+  //   });
+  //   setList(newList)
+  // }
+
   return (
     <div>
       <h1>Welcome Teacher</h1>

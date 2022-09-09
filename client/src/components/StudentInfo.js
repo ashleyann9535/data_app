@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import DeleteButton from "./DeleteButton";
 
 const StudentInfo = () => {
   const [student, setStudent] = useState({});
   const {id} = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/student/${id}`)
@@ -28,7 +30,8 @@ const StudentInfo = () => {
           <p>IEP Date: {student.date} </p>
           <p>Teacher: {student.teacher} </p>
           <p>Grade: {student.grade} </p>
-          {/* <Link to={"/student/edit/" + student._id}>Edit</Link> */}
+          <Link to={`/edit/${student._id}`}>Edit</Link> |  
+          <DeleteButton id={student._id} handleDelete={() => navigate('/') } />
         </div>
         <div className="col-8">
           <h6>Goals</h6>
