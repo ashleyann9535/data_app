@@ -19,6 +19,15 @@ const StudentInfo = () => {
     });
   }, [])
 
+  const convertDate = (date) => {
+    let newDate = new Date(date);
+    let month = newDate.getMonth();
+    let day = newDate.getDate();
+    let year = newDate.getFullYear();
+
+    return(`${month}/${day}/${year}`)
+  }
+
 
   return (
     <div>
@@ -27,7 +36,7 @@ const StudentInfo = () => {
         <div className="col-2 m-3 bg-light rounded">
         <h6>Student Information</h6>
           <p>Student Name: {student.firstName} {student.lastName} </p>
-          <p>IEP Date: {student.date} </p>
+          <p>IEP Date: {convertDate(student.date)} </p>
           <p>Teacher: {student.teacher} </p>
           <p>Grade: {student.grade} </p>
           <div className="d-flex justify-content-between align-items-end pb-2">
