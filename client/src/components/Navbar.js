@@ -1,13 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 
 const Navbar = () => {
   return (
     <div>
 <nav className="navbar navbar-light bg-light">
-  <NavLink to='/'>Data Central</NavLink>
-  <NavLink to='/addstudent'>Add Student</NavLink>
+    
+  <NavLink to='/' className="navbar-brand" > <img src={logo} alt= 'logo' width="30" height="30" className="d-inline-block align-top" /> Data Central</NavLink>
 </nav>
 
     </div>

@@ -13,7 +13,7 @@ const DeleteButton = (props) => {
 
   return (
     <div>
-        <p onClick={deleteStudent}>Delete</p>
+        <p onClick={deleteStudent} className= 'm-0 p-1 btn btn-danger'>Delete</p>
     </div>
   )
 }

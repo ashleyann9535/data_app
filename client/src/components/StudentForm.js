@@ -39,10 +39,10 @@ const StudentForm = () => {
 
   return (
     <div>
-      <h4>Add a Student</h4>
+      <h4 className="subheader-font" >Add a Student</h4>
       <form
         onSubmit={submitHandler}
-        className="d-flex w-50 border border-secondary rounded"
+        className="d-flex w-50 rounded bg-light"
       >
         <div className="m-3">
           <label className="d-block m-2">First Name:</label>

@@ -22,18 +22,20 @@ const StudentInfo = () => {
 
   return (
     <div>
-      <h4> {student.firstName} {student.lastName} Data </h4>
+      <h4 className="subheader-font" > {student.firstName} {student.lastName}'s Data </h4>
       <div className="row">
-        <div className="col-4">
+        <div className="col-2 m-3 bg-light rounded">
         <h6>Student Information</h6>
           <p>Student Name: {student.firstName} {student.lastName} </p>
           <p>IEP Date: {student.date} </p>
           <p>Teacher: {student.teacher} </p>
           <p>Grade: {student.grade} </p>
-          <Link to={`/edit/${student._id}`}>Edit</Link> |  
+          <div className="d-flex justify-content-between align-items-end pb-2">
+          <Link to={`/edit/${student._id}`}>Edit</Link> 
           <DeleteButton id={student._id} handleDelete={() => navigate('/') } />
+          </div>
         </div>
-        <div className="col-8">
+        <div className="col-8 m-3 bg-light rounded">
           <h6>Goals</h6>
         </div>
       </div>

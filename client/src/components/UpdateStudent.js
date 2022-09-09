@@ -44,7 +44,7 @@ const UpdateStudent = () => {
 
   return (
     <div>
-      <h4>Update Student Name</h4>
+      <h4 className='subheader-font' >Update Student Name</h4>
       <form
         onSubmit={updateHandler}
         className="d-flex w-50 border border-secondary rounded"

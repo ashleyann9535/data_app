@@ -1,6 +1,21 @@
 .App {
   margin: 10px 30px;
 }
+.header-font{
+  color: #326789;
+}
+
+.subheader-font{
+  color: #e65c4f;
+}
+
+label{
+  color: #326789;
+}
+
+.main-dem{
+  height: 300px;
+}
 
 .App-logo {
   height: 40vmin;
