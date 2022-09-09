@@ -35,10 +35,29 @@ module.exports = {
         .catch((err) => {
             res.status(400).json({message: 'something went wrong with get one', error: err.errors})
         });
-    }
+    },
 
     //Update 
-
+    updateStudent: (req, res) => {
+        Student.updateOne({_id:req.params.id}, req.body, {new:true, runValidators: true})
+        .then((student) => {
+            console.log(student);
+            res.json(student);
+        })
+        .catch((err) => {
+            res.status(400).json({message: 'something went wrong with update', error: err.errors})
+        })
+    },
 
     //Delete
+    deleteStudent: (req, res) => {
+        Student.deleteOne({_id: req.params.id})
+        .then((student) => {
+            console.log(student);
+            res.json(student);
+        })
+        .catch((err) => {
+            res.status(400).json({message: 'something went wrong with delete', error: err.errors})
+        })
+    }
 }
