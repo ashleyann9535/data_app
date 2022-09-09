@@ -50,31 +50,32 @@ const UpdateStudent = () => {
         className="d-flex w-50 border border-secondary rounded"
       >
         <div className="m-3">
-          <label className="d-block m-2">First Name:</label>
-          {errors.firstName && <p>{errors.firstName.message}</p>}
+          <label className="d-block m-1">First Name:</label>
+          {errors.firstName && <p className='m-0 text-danger'>{errors.firstName.message}</p>}
           <input
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            className="m-2"
+            className="m-1"
           />
 
-          <label className="d-block m-2">Last Name:</label>
-          {errors.lastName && <p>{errors.lastName.message}</p>}
+          <label className="d-block m-1">Last Name:</label>
+          {errors.lastName && <p className='m-0 text-danger'>{errors.lastName.message}</p>}
           <input
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            className="m-2"
+            className="m-1"
           />
 
-          <label className="d-block m-2">Grade:</label>
+          <label className="d-block m-1">Grade:</label>
+          {errors.grade && <p className='m-0 text-danger'>{errors.grade.message}</p>}
           <select
             name="grade"
             type="text"
             value={grade}
             onChange={(e) => setGrade(e.target.value)}
-            className="m-2"
+            className="m-1"
           >
             <option value="Pre-K">Pre-K</option>
             <option value="K">K</option>
@@ -86,25 +87,27 @@ const UpdateStudent = () => {
           </select>
         </div>
         <div className="m-3">
-          <label className="d-block m-2">Teacher: </label>
+          <label className="d-block m-1">Teacher: </label>
+          {errors.teacher && <p className='m-0 text-danger'>{errors.teacher.message}</p>}
           <input
             type="text"
             value={teacher}
             onChange={(e) => setTeacher(e.target.value)}
-            className="m-2"
+            className="m-1"
           />
 
-          <label className="d-block m-2">IEP Date:</label>
+          <label className="d-block m-1">IEP Date:</label>
+          {errors.date && <p className='m-0 text-danger'>{errors.date.message}</p>}
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="m-2"
+            className="m-1"
           />
 
           <input
             type="submit"
-            className="d-block bg-primary text-white"
+            className="d-block bg-primary text-white m-3"
             value={"Update Student"}
           />
         </div>
