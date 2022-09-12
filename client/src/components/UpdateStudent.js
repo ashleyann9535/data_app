@@ -16,6 +16,25 @@ const UpdateStudent = () => {
   const [goalThree, setGoalThree] = useState("");
   const [errors, setErrors] = useState({});
 
+  const convertDate = (dataDate) => {
+    let newDate = new Date(dataDate);
+    let month = newDate.getMonth() + 1;
+    let day = newDate.getDate() +1 ;
+    let year = newDate.getFullYear();
+
+    if(parseInt(month) < 10){
+      month = '0' + month
+    }
+
+    if(parseInt(day) < 10){
+      day = '0' + day
+    }
+
+    console.log(`${year}-${month}-${day}`)
+
+    return(`${year}-${month}-${day}`)
+  }
+
   useEffect(() => {
     axios.get(`http://localhost:8000/api/student/${id}`)
     .then((res) => {
@@ -23,7 +42,7 @@ const UpdateStudent = () => {
       setFirstName(res.data.firstName);
       setLastName(res.data.lastName);
       setTeacher(res.data.teacher);
-      setDate(res.data.date);
+      setDate(convertDate(res.data.date));
       setGrade(res.data.grade);
       setGoalOne(res.data.goalOne);
       setGoalTwo(res.data.goalTwo);
@@ -45,15 +64,6 @@ const UpdateStudent = () => {
       console.log(err.response.data.error);
       setErrors(err.response.data.error);
     })
-  }
-
-  const convertDate = (date) => {
-    let newDate = new Date(date);
-    let month = newDate.getMonth();
-    let day = newDate.getDate();
-    let year = newDate.getFullYear();
-
-    return(`${year}-${month}-${day}`)
   }
 
 

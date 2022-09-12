@@ -22,9 +22,17 @@ const StudentInfo = () => {
 
   const convertDate = (date) => {
     let newDate = new Date(date);
-    let month = newDate.getMonth();
-    let day = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let day = newDate.getDate() +1 ;
     let year = newDate.getFullYear();
+
+    if(parseInt(month) < 10){
+      month = '0' + month
+    }
+
+    if(parseInt(day) < 10){
+      day = '0' + day
+    }
 
     return(`${month}/${day}/${year}`)
   }
