@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import DeleteButton from "./DeleteButton";
+import GoalTabs from "./GoalTabs";
 
 const StudentInfo = () => {
   const [student, setStudent] = useState({});
@@ -45,7 +46,7 @@ const StudentInfo = () => {
           </div>
         </div>
         <div className="col-8 m-3 bg-light rounded">
-          <h6>Goals</h6>
+          <h6> <GoalTabs goals={[student.goalOne, student.goalTwo, student.goalThree]}/> </h6>
         </div>
       </div>
     </div>
