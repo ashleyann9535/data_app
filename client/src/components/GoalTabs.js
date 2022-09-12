@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const GoalTabs = (props) => {
   const {goals} = props;
+  console.log(goals)
   const [tab, setTab] = useState(0)
 
   const handleClick = (e) => {
@@ -12,7 +13,7 @@ const GoalTabs = (props) => {
   return (
     <div>
       {goals.filter((goal) => {
-        return goal !== undefined
+        return goal !== undefined && goal !== ''
       })
       .map((tab, index) => {
         return (
