@@ -47,6 +47,9 @@ const Main = () => {
               }
               return 0;
             })
+            .filter((student) =>{
+              return student.isActive !== false
+            })
             .map((student, index) => {
               return (
                 <div className="col-3 my-3">

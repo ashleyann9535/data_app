@@ -1,19 +1,22 @@
 import axios from 'axios';
-import React from 'react';
 
 const DeleteButton = (props) => {
     const {id, handleDelete} = props;
 
-    const deleteStudent = () => {
-        axios.delete(`http://localhost:8000/api/student/${id}`)
-        .then((res) => {
-            handleDelete();
-        })
+    const inActiveStudent = () => {
+      axios.put(`http://localhost:8000/api/student/${id}`, {isActive: false})
+      .then((res) => {
+        console.log(res);
+        handleDelete();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     }
 
   return (
     <div>
-        <p onClick={deleteStudent} className= 'm-0 p-1 btn btn-danger'>Delete</p>
+        <p onClick={inActiveStudent} className= 'm-0 p-1 btn btn-danger'>Delete</p>
     </div>
   )
 }
