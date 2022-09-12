@@ -29,6 +29,16 @@ const StudentSchema = new mongoose.Schema(
         isActive: {
             type: Boolean,
             default: true
+        },
+        goalOne: {
+            type: String,
+            required: [true, 'Please enter a goal']
+        },
+        goalTwo: {
+            type: String,
+        },
+        goalThree: {
+            type: String,
         }
     },
     { timestamps: true }
