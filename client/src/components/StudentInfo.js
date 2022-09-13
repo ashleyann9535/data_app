@@ -43,7 +43,7 @@ const StudentInfo = () => {
       <h4 className="subheader-font" > {student.firstName} {student.lastName}'s Data </h4>
       <div className="row">
         <div className="col-2 m-3 background rounded">
-        <h6>Student Information</h6>
+        <h6 className="boldFont">Student Information</h6>
           <p>Student Name: {student.firstName} {student.lastName} </p>
           <p>IEP Date: {convertDate(student.date)} </p>
           <p>Teacher: {student.teacher} </p>

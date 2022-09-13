@@ -1,8 +1,13 @@
 .App {
   margin: 10px 30px;
+  font-family: 'Merriweather', serif;
 }
 .header-font{
   color: #181818;
+}
+
+.boldFont{
+  font-weight: 700;
 }
 
 .subheader-font{
