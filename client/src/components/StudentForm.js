@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const StudentForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -48,7 +50,8 @@ const StudentForm = () => {
 
   return (
     <div>
-      <h4 className="subheader-font py-3 px-2">Add a Student</h4>
+      <Link to={`/`} className="header-font"> <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon></Link>
+      <h4 className="subheader-font mx-1 py-3 px-2 d-inline-block">Add a Student</h4>
       <form onSubmit={submitHandler} className="w-50 rounded-bottom background borderTop pb-2">
         <div className="d-flex">
           <div className="m-4">
