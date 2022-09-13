@@ -35,7 +35,7 @@ const Main = () => {
       <Link to={"/addstudent"} className='mx-2'>
           <FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon>
         </Link>{" "}
-      <div className="container-fluid bg-light main-dem w-75 mx-0">
+      <div className="container-fluid background main-dem w-75 mx-0">
         <div className="row">
           {list
             .sort((a, b) => {

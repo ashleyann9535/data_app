@@ -48,8 +48,8 @@ const StudentForm = () => {
 
   return (
     <div>
-      <h4 className="subheader-font">Add a Student</h4>
-      <form onSubmit={submitHandler} className="w-50 rounded bg-light pb-2">
+      <h4 className="subheader-font py-3 px-2">Add a Student</h4>
+      <form onSubmit={submitHandler} className="w-50 rounded-bottom background borderTop pb-2">
         <div className="d-flex">
           <div className="m-4">
             <label className="d-block m-1">First Name:</label>
@@ -155,7 +155,7 @@ const StudentForm = () => {
 
         <input
           type="submit"
-          className="d-block bg-primary text-white m-3"
+          className="d-block buttonBackground text-white m-3 rounded border-0"
           value={"Add Student"}
         />
       </form>

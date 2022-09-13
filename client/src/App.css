@@ -2,15 +2,36 @@
   margin: 10px 30px;
 }
 .header-font{
-  color: #326789;
+  color: #181818;
 }
 
 .subheader-font{
-  color: #e65c4f;
+  color: #7F49E1
+  ;
+}
+
+.borderBottom{
+  border-bottom: solid 5px #5CB8E4;
+}
+
+.borderTop{
+  border-top: solid 3px #5CB8E4;
 }
 
 label{
-  color: #326789;
+  color: #181818;
+}
+
+.buttonBackground{
+  background-color: #7F49E1;
+}
+
+.tabBackground{
+  background-color: #fff;
+}
+
+.background{
+  background-color: #F2F2F2;
 }
 
 .main-dem{

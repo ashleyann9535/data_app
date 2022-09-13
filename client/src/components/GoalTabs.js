@@ -17,12 +17,12 @@ const GoalTabs = (props) => {
       })
       .map((tab, index) => {
         return (
-          <button className="btn btn-light m-1" value={index} onClick={handleClick}>
+          <button className="btn tabBackground m-1" value={index} onClick={handleClick}>
               Goal {index +1}
             </button>
         );
       })}
-      <p className="border-top p-2">{goals[tab]}</p>
+      <p className="borderTop p-2">{goals[tab]}</p>
     </div>
   )
 }

@@ -42,7 +42,7 @@ const StudentInfo = () => {
     <div>
       <h4 className="subheader-font" > {student.firstName} {student.lastName}'s Data </h4>
       <div className="row">
-        <div className="col-2 m-3 bg-light rounded">
+        <div className="col-2 m-3 background rounded">
         <h6>Student Information</h6>
           <p>Student Name: {student.firstName} {student.lastName} </p>
           <p>IEP Date: {convertDate(student.date)} </p>
@@ -53,7 +53,7 @@ const StudentInfo = () => {
           <DeleteButton id={student._id} handleDelete={() => navigate('/') } />
           </div>
         </div>
-        <div className="col-8 m-3 bg-light rounded">
+        <div className="col-8 m-3 background rounded">
           <h6> <GoalTabs goals={[student.goalOne, student.goalTwo, student.goalThree]}/> </h6>
         </div>
       </div>

@@ -69,10 +69,10 @@ const UpdateStudent = () => {
 
   return (
     <div>
-      <h4 className='subheader-font' >Update Student Name</h4>
+      <h4 className='subheader-font py-3 px-2' >Update Student Name</h4>
       <form
         onSubmit={updateHandler}
-        className="w-50 border border-secondary rounded"
+        className="w-50 rounded-bottom background borderTop pb-2"
       >
         <div className="d-flex">
           <div className="m-4">
@@ -179,7 +179,7 @@ const UpdateStudent = () => {
 
         <input
           type="submit"
-          className="d-block bg-primary text-white m-3"
+          className="d-block buttonBackground text-white m-3 rounded border-0"
           value={"Update Student"}
         />
       </form>
