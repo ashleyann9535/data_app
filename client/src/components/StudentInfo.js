@@ -49,7 +49,7 @@ const StudentInfo = () => {
           <p>Teacher: {student.teacher} </p>
           <p>Grade: {student.grade} </p>
           <div className="d-flex justify-content-between align-items-end pb-2">
-          <Link to={`/edit/${student._id}`}>Edit</Link> 
+          <Link to={`/edit/${student._id}`} state={student}>Edit</Link> 
           <DeleteButton id={student._id} handleDelete={() => navigate('/') } />
           </div>
         </div>
