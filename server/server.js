@@ -11,7 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require('./config/mongoose.config');
 
-require('./routes/students.routes')(app);
+require('./routes/students.routes')(app)
+require('./routes/goals.routes')(app)
 // require('./routes/teacher.routes')(app);
 
 app.listen(8000, () => {

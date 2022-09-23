@@ -30,9 +30,13 @@ const StudentSchema = new mongoose.Schema(
             type: Boolean,
             default: true
         },
+        goals: {
+            type:mongoose.Schema.Types.ObjectId,
+            ref: 'goals'
+        },
         goalOne: {
             type: String,
-            required: [true, 'Please enter a goal']
+            required: [true, 'Please enter a goal'],
         },
         goalTwo: {
             type: String,
@@ -43,5 +47,15 @@ const StudentSchema = new mongoose.Schema(
     },
     { timestamps: true }
 );
+
+StudentSchema.pre('find', function(next){
+    this.populate('goals');
+    next();
+});
+
+StudentSchema.pre('findOne', function(next){
+    this.populate('goals');
+    next();
+});
 
 module.exports = mongoose.model('Student', StudentSchema);
