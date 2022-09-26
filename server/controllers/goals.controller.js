@@ -1,16 +1,16 @@
 const Goal = require('../models/goals.model');
+const Student = require('../models/students.model');
 
 module.exports = {
     //Create 
-    createGoal: (req, res) => {
+    createStudentGoal: (req,res) => {
         Goal.create(req.body)
-        .then((newGoal) => {
-            console.log(newGoal)
-            res.json(newGoal)
+        .then((goal) => {
+            return Student.updateOne({_id: req.params.id}, {$push: {goals:goal._id}}, {new:true, runValidators: true})
         })
         .catch((err) => {
-            res.status(400).json({message: 'something went wrong with create goals', error: err.errors});
-        });
+            res.status(400).json({message: 'something went wrong with create goal for student', error: err.errors});
+        })
     },
 
     //Read 

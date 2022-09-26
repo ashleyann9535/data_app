@@ -28,6 +28,7 @@ module.exports = {
 
     getOneStudent: (req, res) => {
         Student.findOne({_id:req.params.id})
+        .populate('goals')
         .then((student) => {
             console.log(student);
             res.json(student);
