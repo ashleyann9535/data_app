@@ -8,17 +8,21 @@ const StudentInfo = () => {
   const [student, setStudent] = useState({});
   const {id} = useParams();
   const navigate = useNavigate();
+  const [goals, setGoals] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/student/${id}`)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setStudent(res.data);
-    })
+      setGoals(res.data.goals);
+  })
     .catch((err) =>{
       console.log(err);
     });
   }, [])
+
+  let list = goals.map(a => a.goal);
 
   const convertDate = (date) => {
     let newDate = new Date(date);
@@ -54,7 +58,7 @@ const StudentInfo = () => {
           </div>
         </div>
         <div className="col-8 m-3 background rounded">
-          <h6> <GoalTabs goals={[student.goalOne, student.goalTwo, student.goalThree]}/> </h6>
+          <h6> <GoalTabs goals={list} /> </h6>
         </div>
       </div>
     </div>
