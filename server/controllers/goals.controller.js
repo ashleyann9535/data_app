@@ -8,6 +8,9 @@ module.exports = {
         .then((goal) => {
             return Student.updateOne({_id: req.params.id}, {$push: {goals:goal._id}}, {new:true, runValidators: true})
         })
+        .then((student) => {
+            res.json(student)
+        })
         .catch((err) => {
             res.status(400).json({message: 'something went wrong with create goal for student', error: err.errors});
         })
