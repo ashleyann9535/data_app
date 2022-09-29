@@ -1,45 +1,18 @@
-import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import Form from "./Form";
 
 const StudentForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [teacher, setTeacher] = useState("");
-  const [date, setDate] = useState("");
-  const [grade, setGrade] = useState("");
-  const [goalOne, setGoalOne] = useState("");
-  const [goalTwo, setGoalTwo] = useState("");
-  const [goalThree, setGoalThree] = useState("");
-  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const submitHandler = (studentInfo, setErrors) => {
     axios
-      .post("http://localhost:8000/api/student/create", {
-        firstName,
-        lastName,
-        teacher,
-        date,
-        grade,
-        goalOne,
-        goalTwo,
-        goalThree,
-      })
+      .post("http://localhost:8000/api/student/create", studentInfo)
       .then((res) => {
-        console.log(res);
-        setFirstName("");
-        setLastName("");
-        setTeacher("");
-        setDate("");
-        setGrade("");
-        setGoalOne("");
-        setGoalTwo("");
-        setGoalThree("");
+        console.log(res.date);
         navigate("/");
       })
       .catch((err) => {
@@ -52,116 +25,7 @@ const StudentForm = () => {
     <div>
       <Link to={`/`} className="header-font"> <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon></Link>
       <h4 className="subheader-font mx-1 py-3 px-2 d-inline-block">Add a Student</h4>
-      <form onSubmit={submitHandler} className="w-50 rounded-bottom background borderTop pb-2">
-        <div className="d-flex">
-          <div className="m-4">
-            <label className="d-block m-1">First Name:</label>
-            {errors.firstName && (
-              <p className="m-0 text-danger">{errors.firstName.message}</p>
-            )}
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              className="m-1"
-            />
-
-            <label className="d-block m-1">Last Name:</label>
-            {errors.lastName && (
-              <p className="m-0 text-danger">{errors.lastName.message}</p>
-            )}
-            <input
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              className="m-1"
-            />
-
-            <label className="d-block m-1">Grade:</label>
-            {errors.grade && (
-              <p className="m-0 text-danger">{errors.grade.message}</p>
-            )}
-            <select
-              name="grade"
-              type="text"
-              value={grade}
-              onChange={(e) => setGrade(e.target.value)}
-              className="m-1"
-            >
-              <option value="">--Please choose a grade--</option>
-              <option value="Pre-K">Pre-K</option>
-              <option value="K">K</option>
-              <option value="1st">1st</option>
-              <option value="2nd">2nd</option>
-              <option value="3rd">3rd</option>
-              <option value="4th">4th</option>
-              <option value="5th">5th</option>
-            </select>
-          </div>
-          <div className="m-4">
-            <label className="d-block m-1">Teacher: </label>
-            {errors.teacher && (
-              <p className="m-0 text-danger">{errors.teacher.message}</p>
-            )}
-            <input
-              type="text"
-              value={teacher}
-              onChange={(e) => setTeacher(e.target.value)}
-              className="m-1"
-            />
-
-            <label className="d-block m-1">IEP Date:</label>
-            {errors.date && (
-              <p className="m-0 text-danger">{errors.date.message}</p>
-            )}
-            <input
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="m-1"
-            />
-          </div>
-        </div>
-        <div className="d-flex">
-          <div className="mx-4">
-          <label className="d-block m-1">Goal One:</label>
-          {errors.goalOne && (
-            <p className="m-0 text-danger">{errors.goalOne.message}</p>
-          )}
-          <input
-            type="text"
-            value={goalOne}
-            onChange={(e) => setGoalOne(e.target.value)}
-            className="m-1"
-            size={50}
-          />
-          
-          <label className="d-block m-1">Goal Two:</label>
-          <input
-            type="text"
-            value={goalTwo}
-            onChange={(e) => setGoalTwo(e.target.value)}
-            className="m-1"
-            size={50}
-          />
-          
-          <label className="d-block m-1">Goal Three:</label>
-          <input
-            type="text"
-            value={goalThree}
-            onChange={(e) => setGoalThree(e.target.value)}
-            className="m-1"
-            size={50}
-          />
-          </div>
-        </div>
-
-        <input
-          type="submit"
-          className="d-block buttonBackground text-white m-3 rounded border-0"
-          value={"Add Student"}
-        />
-      </form>
+      <Form handleSubmit={submitHandler} buttonText={'Add Student'} />
     </div>
   );
 };

@@ -8,17 +8,21 @@ const StudentInfo = () => {
   const [student, setStudent] = useState({});
   const {id} = useParams();
   const navigate = useNavigate();
+  const [goals, setGoals] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/student/${id}`)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setStudent(res.data);
-    })
+      setGoals(res.data.goals);
+  })
     .catch((err) =>{
       console.log(err);
     });
   }, [])
+
+  let list = goals.map(a => a.goal);
 
   const convertDate = (date) => {
     let newDate = new Date(date);
@@ -49,12 +53,13 @@ const StudentInfo = () => {
           <p>Teacher: {student.teacher} </p>
           <p>Grade: {student.grade} </p>
           <div className="d-flex justify-content-between align-items-end pb-2">
-          <Link to={`/edit/${student._id}`}>Edit</Link> 
+          <Link to={`/edit/${student._id}`} state={student}>Edit</Link> 
           <DeleteButton id={student._id} handleDelete={() => navigate('/') } />
           </div>
         </div>
         <div className="col-8 m-3 background rounded">
-          <h6> <GoalTabs goals={[student.goalOne, student.goalTwo, student.goalThree]}/> </h6>
+          <Link to={`/goal/${student._id}`} state={student}>+</Link> 
+          <h6> <GoalTabs goals={list} /> </h6>
         </div>
       </div>
     </div>

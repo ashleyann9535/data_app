@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const GoalTabs = (props) => {
   const {goals} = props;
-  console.log(goals)
   const [tab, setTab] = useState(0)
 
   const handleClick = (e) => {

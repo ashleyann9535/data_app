@@ -30,9 +30,13 @@ const StudentSchema = new mongoose.Schema(
             type: Boolean,
             default: true
         },
+        goals: [{
+            type:mongoose.Schema.Types.ObjectId,
+            ref: 'Goals'
+        }],
         goalOne: {
             type: String,
-            required: [true, 'Please enter a goal']
+            required: [true, 'Please enter a goal'],
         },
         goalTwo: {
             type: String,
