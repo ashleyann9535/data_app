@@ -15,7 +15,7 @@ module.exports = {
 
     //Read 
     getGoals: (req, res) =>{
-        Goal.find({})
+        Goal.find()
         .then((goals) => {
             console.log(goals);
             res.json(goals);

@@ -16,7 +16,7 @@ module.exports = {
 
     //Read 
     getStudents: (req, res) => {
-        Student.find({})
+        Student.find()
         .then((students) => {
             console.log(students);
             res.json(students);
