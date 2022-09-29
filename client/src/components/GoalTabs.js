@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link} from "react-router-dom";
 
 const GoalTabs = (props) => {
-  const {goals} = props;
+  const {goals, goalIds, studentId} = props;
   const [tab, setTab] = useState(0)
 
   const handleClick = (e) => {
@@ -22,6 +23,7 @@ const GoalTabs = (props) => {
         );
       })}
       <p className="borderTop p-2">{goals[tab]}</p>
+      <Link to={`/edit/goal/${goalIds[tab]}/${studentId}`} >Edit Goal</Link>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import StudentForm from './components/StudentForm';
 import StudentInfo from './components/StudentInfo';
 import UpdateStudent from './components/UpdateStudent'
 import CreateGoal from './components/CreateGoal';
+import UpdateGoal from './components/UpdateGoal';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path = '/details/:id' element={<StudentInfo />} />
         <Route path = '/edit/:id' element={<UpdateStudent />} />
         <Route path = '/goal/:id' element={<CreateGoal />} />
+        <Route path = '/edit/goal/:id/:studentId' element={<UpdateGoal />} />
         </Routes>
       </BrowserRouter>
     </div>

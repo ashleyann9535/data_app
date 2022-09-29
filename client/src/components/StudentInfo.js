@@ -22,7 +22,8 @@ const StudentInfo = () => {
     });
   }, [])
 
-  let list = goals.map(a => a.goal);
+  let goalList = goals.map(a => a.goal);
+  let goalIds = goals.map(a => a._id);
 
   const convertDate = (date) => {
     let newDate = new Date(date);
@@ -59,7 +60,7 @@ const StudentInfo = () => {
         </div>
         <div className="col-8 m-3 background rounded">
           <Link to={`/goal/${student._id}`} state={student}>+</Link> 
-          <h6> <GoalTabs goals={list} /> </h6>
+          <h6> <GoalTabs goals={goalList} goalIds={goalIds} studentId={student._id} /> </h6>
         </div>
       </div>
     </div>
