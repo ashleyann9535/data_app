@@ -22,7 +22,7 @@ const StudentInfo = () => {
     });
   }, [])
 
-  let goalList = goals.map(a => a.goal);
+  let goalList = goals.filter(a => a.isActive !== false).map(a => a.goal);
   let goalIds = goals.map(a => a._id);
 
   const convertDate = (date) => {

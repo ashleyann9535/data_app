@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import GoalForm from './GoalForm';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const UpdateGoal = () => {
-    const {id, studentId} = useParams();
+    const {id, studentId, removeFromList} = useParams();
     const navigate = useNavigate();
     const {state} = useLocation(); 
     const [oldGoal, setOldGoal] = useState(null);
@@ -31,9 +33,20 @@ const UpdateGoal = () => {
         })
     }
 
+    const deleteHandler = () => {
+        axios.put(`http://localhost:8000/api/goal/${id}`, {isActive: false})
+        .then(res => {
+            console.log(res.data)
+            navigate(`/details/${studentId}`);
+        })
+        .catch(err => console.log(err))
+    }
+
   return (
     <div>
+        <Link to={`/details/${studentId}`} className="header-font"> <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon></Link>
         {oldGoal && <GoalForm handleSubmit={updateHandler} buttonText={'Edit Goal'} oldGoal={oldGoal} />}
+        <button onClick={deleteHandler} >Delete</button>
     </div>
   )
 }

@@ -4,6 +4,10 @@ const GoalSchema = new mongoose.Schema(
     {
         goal: {
             type: String
+        },
+        isActive: {
+            type: Boolean,
+            default: true
         }
     },
     {timestamps: true}

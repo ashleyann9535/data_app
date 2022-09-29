@@ -49,8 +49,17 @@ module.exports = {
         .catch((err) => {
             res.status(400).json({message: 'something went wrong with update goal', error: err.errors});
         })
-    }
+    },
 
     //Delete
-    //use update
+    deleteGoal: (req, res) => {
+        Goal.deleteOne({_id: req.params.id})
+        .then((goal) => {
+            console.log(goal);
+            res.json(goal)
+        })
+        .catch((err) => {
+            res.status(400).json({message: 'something went wrong with delete goal', error:err.errors})
+        })
+    }
 }

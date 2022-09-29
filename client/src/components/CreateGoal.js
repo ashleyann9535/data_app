@@ -1,7 +1,8 @@
 import axios from 'axios';
-import {useState} from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import GoalForm from './GoalForm';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const CreateGoal = () => {
     const {id} = useParams();
@@ -20,6 +21,7 @@ const submitHandler = (goal) => {
 
   return (
     <div>
+      <Link to={`/details/${id}`} className="header-font"> <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon></Link>
         <GoalForm handleSubmit={submitHandler} buttonText={'Add Goal'}  />
     </div>
   )
