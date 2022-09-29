@@ -21,7 +21,7 @@ const GoalForm = (props) => {
           className="m-1"
           placeholder="Add goal..."
         />
-        <input className="btn btn-secondary" type="submit" value={buttonText} />
+        <input className="btn btn-secondary" type="submit" value={buttonText}  />
       </form>
     </div>
   );

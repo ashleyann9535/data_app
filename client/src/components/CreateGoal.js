@@ -20,7 +20,7 @@ const submitHandler = (goal) => {
 
   return (
     <div>
-        <GoalForm handleSubmit={submitHandler} buttonText={'Add Goal'} />
+        <GoalForm handleSubmit={submitHandler} buttonText={'Add Goal'}  />
     </div>
   )
 }
