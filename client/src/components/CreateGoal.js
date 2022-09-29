@@ -1,18 +1,16 @@
 import axios from 'axios';
 import {useState} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import GoalForm from './GoalForm';
 
 const CreateGoal = () => {
-    const [goal, setGoal] = useState('');
     const {id} = useParams();
     const navigate = useNavigate();
 
-const submitHandler = (e) => {
-    e.preventDefault();
+const submitHandler = (goal) => {
     axios.post(`http://localhost:8000/api/goal/${id}`, {goal})
     .then((res) => {
         console.log(res.data)
-        setGoal('');
         navigate(`/details/${id}`)
     })
     .catch((err) => {
@@ -22,18 +20,7 @@ const submitHandler = (e) => {
 
   return (
     <div>
-        <h4> Add Create </h4>
-        <form onSubmit={submitHandler} >
-        <input
-              type="text"
-              value={goal}
-              name="goal"
-              onChange={(e) => setGoal(e.target.value)}
-              className="m-1"
-              placeholder='Add goal...'
-            />
-            <input className="btn btn-secondary" type="submit" value={"Submit"} />
-        </form>
+        <GoalForm handleSubmit={submitHandler} buttonText={'Add Goal'}  />
     </div>
   )
 }
