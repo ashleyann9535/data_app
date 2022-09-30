@@ -14,10 +14,7 @@ const GoalTabs = (props) => {
 
   return (
     <div>
-      {goals.filter((goal) => {
-        return goal !== undefined && goal !== ''
-      })
-      .map((tab, index) => {
+      {goals.map((tab, index) => {
         return (
           <button className="btn tabBackground m-2" value={index} onClick={handleClick}>
               Goal {index +1}

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import GoalForm from './GoalForm';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const UpdateGoal = () => {
     const {id, studentId, removeFromList} = useParams();
@@ -46,7 +46,7 @@ const UpdateGoal = () => {
     <div>
         <Link to={`/details/${studentId}`} className="header-font"> <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon></Link>
         {oldGoal && <GoalForm handleSubmit={updateHandler} buttonText={'Edit Goal'} oldGoal={oldGoal} />}
-        <button onClick={deleteHandler} >Delete</button>
+        <FontAwesomeIcon icon={faTrash} onClick={deleteHandler}></FontAwesomeIcon>
     </div>
   )
 }
