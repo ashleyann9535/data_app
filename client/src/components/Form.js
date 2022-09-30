@@ -9,9 +9,6 @@ const Form = (props) => {
     teacher: "",
     date: "",
     grade: "",
-    goalOne: "",
-    goalTwo: "",
-    goalThree: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -120,42 +117,6 @@ const Form = (props) => {
               name="date"
               onChange={handleChange}
               className="m-1"
-            />
-          </div>
-        </div>
-        <div className="d-flex">
-          <div className="mx-4">
-            <label className="d-block m-1">Goal One:</label>
-            {errors.goalOne && (
-              <p className="m-0 text-danger">{errors.goalOne.message}</p>
-            )}
-            <input
-              type="text"
-              value={studentInfo.goalOne}
-              name="goalOne"
-              onChange={handleChange}
-              className="m-1"
-              size={50}
-            />
-
-            <label className="d-block m-1">Goal Two:</label>
-            <input
-              type="text"
-              value={studentInfo.goalTwo}
-              name="goalTwo"
-              onChange={handleChange}
-              className="m-1"
-              size={50}
-            />
-
-            <label className="d-block m-1">Goal Three:</label>
-            <input
-              type="text"
-              value={studentInfo.goalThree}
-              name="goalThree"
-              onChange={handleChange}
-              className="m-1"
-              size={50}
             />
           </div>
         </div>
