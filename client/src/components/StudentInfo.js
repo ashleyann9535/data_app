@@ -59,7 +59,7 @@ const StudentInfo = () => {
           </div>
         </div>
         <div className="col-8 m-3 background rounded">
-          <Link to={`/goal/${student._id}`} state={student}>+</Link> 
+           
           <h6> <GoalTabs goals={goalList} goalIds={goalIds} studentId={student._id} /> </h6>
         </div>
       </div>

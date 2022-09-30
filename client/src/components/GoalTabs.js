@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link} from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 const GoalTabs = (props) => {
   const {goals, goalIds, studentId} = props;
@@ -21,7 +23,8 @@ const GoalTabs = (props) => {
               Goal {index +1}
             </button>
         );
-      })}
+      })} 
+      <Link to={`/goal/${studentId}`}><FontAwesomeIcon icon={faCirclePlus}></FontAwesomeIcon></Link>
       <p className="borderTop p-2">{goals[tab]}</p>
       <Link to={`/edit/goal/${goalIds[tab]}/${studentId}`} >Edit Goal</Link>
     </div>
