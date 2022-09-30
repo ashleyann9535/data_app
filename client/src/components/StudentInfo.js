@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import DeleteButton from "./DeleteButton";
 import GoalTabs from "./GoalTabs";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 
 const StudentInfo = () => {
   const [student, setStudent] = useState({});
@@ -54,12 +56,11 @@ const StudentInfo = () => {
           <p>Teacher: {student.teacher} </p>
           <p>Grade: {student.grade} </p>
           <div className="d-flex justify-content-between align-items-end pb-2">
-          <Link to={`/edit/${student._id}`} state={student}>Edit</Link> 
+          <Link to={`/edit/${student._id}`} state={student}><FontAwesomeIcon icon={faUserPen}></FontAwesomeIcon></Link> 
           <DeleteButton id={student._id} handleDelete={() => navigate('/') } />
           </div>
         </div>
         <div className="col-8 m-3 background rounded">
-           
           <h6> <GoalTabs goals={goalList} goalIds={goalIds} studentId={student._id} /> </h6>
         </div>
       </div>
