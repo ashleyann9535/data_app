@@ -19,7 +19,7 @@ const GoalTabs = (props) => {
       })
       .map((tab, index) => {
         return (
-          <button className="btn tabBackground m-1" value={index} onClick={handleClick}>
+          <button className="btn tabBackground m-2" value={index} onClick={handleClick}>
               Goal {index +1}
             </button>
         );

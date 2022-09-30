@@ -20,6 +20,7 @@ const GoalForm = (props) => {
           onChange={(e) => setGoal(e.target.value)}
           className="m-1"
           placeholder="Add goal..."
+          size= '50'
         />
         <input className="btn btn-secondary" type="submit" value={buttonText}  />
       </form>
