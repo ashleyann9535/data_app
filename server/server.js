@@ -13,6 +13,7 @@ require('./config/mongoose.config');
 
 require('./routes/students.routes')(app)
 require('./routes/goals.routes')(app)
+require('./routes/data.routes')(app)
 // require('./routes/teacher.routes')(app);
 
 app.listen(8000, () => {
