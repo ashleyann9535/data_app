@@ -5,6 +5,7 @@ import DeleteButton from "./DeleteButton";
 import GoalTabs from "./GoalTabs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPen } from "@fortawesome/free-solid-svg-icons";
+import ViewData from "./ViewData";
 
 const StudentInfo = () => {
   const [student, setStudent] = useState({});
@@ -15,7 +16,6 @@ const StudentInfo = () => {
   useEffect(() => {
     axios.get(`http://localhost:8000/api/student/${id}`)
     .then((res) => {
-      // console.log(res.data);
       setStudent(res.data);
       setGoals(res.data.goals);
   })
@@ -63,6 +63,9 @@ const StudentInfo = () => {
         <div className="col-8 m-3 background rounded">
           <h6> <GoalTabs goals={goalList} goalIds={goalIds} studentId={student._id} /> </h6>
         </div>
+      </div>
+      <div className="m-1 p-2 background rounded" >
+        <ViewData goalId={'633642a499f8a30ea0bb1d00'} />
       </div>
     </div>
   )
