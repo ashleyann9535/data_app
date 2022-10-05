@@ -65,7 +65,7 @@ const StudentInfo = () => {
         </div>
       </div>
       <div className="m-1 p-2 background rounded" >
-        <ViewData goalId={'633642a499f8a30ea0bb1d00'} />
+        {/* <ViewData/> */}
       </div>
     </div>
   )
