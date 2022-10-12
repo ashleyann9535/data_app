@@ -10,6 +10,7 @@ const GoalTabs = (props) => {
   const handleClick = (e) => {
     e.preventDefault(); 
     setTab(e.target.value);
+    props.returnGoalId(goalIds[tab])
   };
 
   return (

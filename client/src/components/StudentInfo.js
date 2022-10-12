@@ -12,6 +12,7 @@ const StudentInfo = () => {
   const {id} = useParams();
   const navigate = useNavigate();
   const [goals, setGoals] = useState([]);
+  const [goalDataId, setGoalDataId] = useState('');
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/student/${id}`)
@@ -44,6 +45,11 @@ const StudentInfo = () => {
     return(`${month}/${day}/${year}`)
   }
 
+  const goalData = (id) => {
+    console.log(id)
+    setGoalDataId(id)
+  }
+
 
   return (
     <div>
@@ -61,11 +67,11 @@ const StudentInfo = () => {
           </div>
         </div>
         <div className="col-8 m-3 background rounded">
-          <h6> <GoalTabs goals={goalList} goalIds={goalIds} studentId={student._id} /> </h6>
+          <h6> <GoalTabs goals={goalList} goalIds={goalIds} studentId={student._id} returnGoalId={goalData} /> </h6>
         </div>
       </div>
       <div className="m-1 p-2 background rounded" >
-        {/* <ViewData/> */}
+        <ViewData goalDataId={goalDataId} />
       </div>
     </div>
   )
