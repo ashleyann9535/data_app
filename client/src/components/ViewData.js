@@ -8,7 +8,7 @@ const ViewData = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/goal/${goalId}`)
+      .get(`http://localhost:8000/api/goal/633642a499f8a30ea0bb1d00`)
       .then((res) => {
         console.log(res.data.dataList);
         setGoal(res.data);
@@ -17,7 +17,7 @@ const ViewData = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [goalId]);
 
   return (
     <div>
