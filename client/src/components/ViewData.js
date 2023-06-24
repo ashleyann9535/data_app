@@ -19,11 +19,16 @@ const ViewData = (props) => {
       });
   }, [goalId]);
 
+  let goal_data = data.map(a => a.id);
+
+  console.log(goal_data)
+
   return (
     <div>
       <h5>Goal Data</h5>
       <div className="row">
         {data.map((data, index) => {
+          console.log(data)
           return (
             <div className="col-2" key={index}>
               <div className="card mx-2">
