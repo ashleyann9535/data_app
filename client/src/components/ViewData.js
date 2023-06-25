@@ -39,11 +39,27 @@ const ViewData = (props) => {
     fetchData();
   }, [])
 
-
   console.log(`Goal Id: ${goalId}`)
 
   let goalData = dataInfo.map(a => a);
-  console.log(`Data Id: ${goalData}`)
+  console.log(`Data Objects: ${goalData}`)
+
+  const convertDate = (date) => {
+    let newDate = new Date(date);
+    let month = newDate.getMonth() + 1;
+    let day = newDate.getDate() +1 ;
+    let year = newDate.getFullYear();
+
+    if(parseInt(month) < 10){
+      month = '0' + month
+    }
+
+    if(parseInt(day) < 10){
+      day = '0' + day
+    }
+
+    return(`${month}/${day}/${year}`)
+  }
 
   return (
     <div>
@@ -55,7 +71,7 @@ const ViewData = (props) => {
             <div className="col-2" key={index}>
               <div className="card mx-2">
                 <div className="card-body">
-                  <h5 className="card-title">Date: {data.date} </h5>
+                  <h5 className="card-title">Date: {convertDate(data.date)} </h5>
                   <h6 className="card-subtitle mb-2 text-muted">
                     Score: {data.score}{" "}
                   </h6>
