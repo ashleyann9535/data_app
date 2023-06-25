@@ -3,8 +3,10 @@ import axios from "axios";
 
 const ViewData = (props) => {
   const [goal, setGoal] = useState({});
-  const [data, setData] = useState([]);
+  const [dataId, setDataId] = useState([]);
+  const [dataInfo, setDataInfo] = useState([]);
   const { goalId } = props;
+
 
   useEffect(() => {
     axios
@@ -12,23 +14,43 @@ const ViewData = (props) => {
       .then((res) => {
         console.log(res.data.dataList);
         setGoal(res.data);
-        setData(res.data.dataList);
+        setDataId(res.data.dataList);
       })
       .catch((err) => {
         console.log(err);
       });
   }, [goalId]);
 
-  let goal_data = data.map(a => a.id);
+  useEffect(() => {
+    const fetchData = () => {
+      const requests = dataId.map(id =>
+        axios.get(`http://localhost:8000/api/data/${id}`)
+      );
+      Promise.all(requests)
+        .then(responses => {
+          const responseData = responses.map(response => response.data);
+          setDataInfo(responseData);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    };
 
-  console.log(goal_data)
+    fetchData();
+  }, [])
+
+
+  console.log(`Goal Id: ${goalId}`)
+
+  let goalData = dataInfo.map(a => a);
+  console.log(`Data Id: ${goalData}`)
 
   return (
     <div>
       <h5>Goal Data</h5>
       <div className="row">
-        {data.map((data, index) => {
-          console.log(data)
+        {goalData.map((data, index) => {
+          // console.log(data)
           return (
             <div className="col-2" key={index}>
               <div className="card mx-2">
@@ -38,8 +60,7 @@ const ViewData = (props) => {
                     Score: {data.score}{" "}
                   </h6>
                   <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    Notes: {data.notes}
                   </p>
                 </div>
               </div>
