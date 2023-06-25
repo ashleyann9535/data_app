@@ -10,7 +10,7 @@ const ViewData = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/goal/633642a499f8a30ea0bb1d00`)
+      .get(`http://localhost:8000/api/goal/649758831c22db19d091f5ec`)
       .then((res) => {
         console.log(res.data.dataList);
         setGoal(res.data);
